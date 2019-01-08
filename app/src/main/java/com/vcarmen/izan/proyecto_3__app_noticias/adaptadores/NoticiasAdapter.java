@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.vcarmen.izan.proyecto_3__app_noticias.R;
+import com.vcarmen.izan.proyecto_3__app_noticias.modelos.ApiConfig;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.api.VolleySingleton;
 
@@ -24,21 +27,21 @@ import butterknife.ButterKnife;
 public class NoticiasAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Noticia> noticia;
+    private List<Noticia> noticias;
 
-    public NoticiasAdapter(Context context, List<Noticia> noticia) {
+    public NoticiasAdapter(Context context, List<Noticia> noticias) {
         this.context = context;
-        this.noticia = noticia;
+        this.noticias = noticias;
     }
 
     @Override
     public int getCount() {
-        return noticia.size();
+        return noticias.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return noticia.get(i);
+        return noticias.get(i);
     }
 
     @Override
@@ -50,6 +53,8 @@ public class NoticiasAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
 
+        Noticia noticia = noticias.get(i);
+
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.noticias_row_item, viewGroup, false);
             viewHolder = new ViewHolder(view);
@@ -58,13 +63,13 @@ public class NoticiasAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        Noticia noticia = (Noticia) getItem(i);
-
-
         viewHolder.titulo.setText(noticia.getTitle());
         viewHolder.autor.setText(noticia.getAuthor());
         viewHolder.fecha.setText(noticia.getFormatPublishedAt());
-        viewHolder.imagen.setImageUrl(noticia.getUrlToImage(), VolleySingleton.getInstance(context).getImageLoader());
+
+        Glide.with(view).load(noticia.getUrlToImage()).apply(RequestOptions.placeholderOf(R.color.colorPrimary)).into(viewHolder.imagen);
+
+        //viewHolder.imagen.setImageUrl(noticia.getUrlToImage(), VolleySingleton.getInstance(context).getImageLoader());
 
         return view;
     }

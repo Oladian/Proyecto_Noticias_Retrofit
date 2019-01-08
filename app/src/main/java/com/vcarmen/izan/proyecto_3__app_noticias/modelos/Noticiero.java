@@ -1,6 +1,8 @@
 package com.vcarmen.izan.proyecto_3__app_noticias.modelos;
 
-public class Noticiero {
+import java.io.Serializable;
+
+public class Noticiero implements Serializable {
     int imagen;
 
     String nombre, fuente;

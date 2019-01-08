@@ -1,5 +1,7 @@
 package com.vcarmen.izan.proyecto_3__app_noticias.modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
@@ -10,11 +12,22 @@ import java.util.Locale;
  */
 
 public class Noticia implements Serializable {
+    @SerializedName("author")
     private String author;
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("description")
     private String description;
+
+    @SerializedName("url")
     private String url;
+
+    @SerializedName("urlToImage")
     private String urlToImage;
+
+    @SerializedName("publishedAt")
     private Date publishedAt;
 
     public Noticia(String author, String title, String description, String url, String urlToImage, Date publishedAt) {

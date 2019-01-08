@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticias;
+import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticieros;
+import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticiero;
+import com.vcarmen.izan.proyecto_3__app_noticias.modelos.OnComunicarFragmentos;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnComunicarFragmentos {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,4 +52,12 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    @Override
+    public void pasarFuente(Noticiero noticiero) {
+        FragmentoListaNoticias fragmento = new FragmentoListaNoticias();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("NOTICIERO", noticiero);
+        fragmento.setArguments(bundle);
+        inflarFragmento(fragmento);
+    }
 }
