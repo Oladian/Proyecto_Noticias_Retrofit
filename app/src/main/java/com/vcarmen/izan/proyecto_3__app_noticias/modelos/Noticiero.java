@@ -2,12 +2,14 @@ package com.vcarmen.izan.proyecto_3__app_noticias.modelos;
 
 public class Noticiero {
     int imagen;
+
     String nombre, fuente;
 
     public Noticiero(int imagen, String nombre, String fuente) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.fuente = fuente;
+
     }
 
     public int getImagen() {
@@ -33,6 +35,7 @@ public class Noticiero {
     public void setFuente(String fuente) {
         this.fuente = fuente;
     }
+
 }
 
 
