@@ -26,7 +26,7 @@ public class NewsApi {
     private String ENDPOINT_TOP = "https://newsapi.org/v2/top-headlines?sources=%s&apiKey=%s";
     private String ENDPOINT_TODO = "https://newsapi.org/v2/everything?sources=%s&apiKey=%s";
     private String SOURCE = "marca";
-    private String APIKEY = "e9e3cbfdc42c4ab295a4cac9f7247401";
+    private String APIKEY = "3d9a4eb2e5ba4156ad2f38714a1337fc";
     private String url;
     public NewsApi() {
         this.url = String.format(ENDPOINT_TODO, SOURCE, APIKEY);
