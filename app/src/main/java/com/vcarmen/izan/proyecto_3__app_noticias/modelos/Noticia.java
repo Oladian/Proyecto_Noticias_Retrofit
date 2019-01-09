@@ -30,6 +30,9 @@ public class Noticia implements Serializable {
     @SerializedName("publishedAt")
     private Date publishedAt;
 
+    private boolean favorito = false;
+
+
     public Noticia(String author, String title, String description, String url, String urlToImage, Date publishedAt) {
         this.author = author;
         this.title = title;
@@ -85,6 +88,14 @@ public class Noticia implements Serializable {
 
     public void setPublishedAt(Date publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
 
     public String getFormatPublishedAt() {
