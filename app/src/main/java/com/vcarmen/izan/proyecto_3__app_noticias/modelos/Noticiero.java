@@ -11,7 +11,6 @@ public class Noticiero implements Serializable {
         this.imagen = imagen;
         this.nombre = nombre;
         this.fuente = fuente;
-
     }
 
     public int getImagen() {

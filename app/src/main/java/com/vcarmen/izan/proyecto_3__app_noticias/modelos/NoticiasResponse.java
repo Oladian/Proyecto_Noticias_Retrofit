@@ -15,7 +15,7 @@ public class NoticiasResponse {
     @SerializedName("total_pages")
     private int total_paginas;
 
-    @SerializedName("results")
+    @SerializedName("articles")
     private List<Noticia> noticias;
 
     public int getPagina() {

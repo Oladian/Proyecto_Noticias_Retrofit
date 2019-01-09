@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoDetalleNoticia;
 import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticias;
 import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticieros;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements OnComunicarFragme
     public void inflarFragmento(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.contenedor, fragment);
+        ft.replace(R.id.contenedor, fragment);
         ft.addToBackStack(null);
         ft.commit();
     }
@@ -57,6 +58,15 @@ public class MainActivity extends AppCompatActivity implements OnComunicarFragme
         FragmentoListaNoticias fragmento = new FragmentoListaNoticias();
         Bundle bundle = new Bundle();
         bundle.putSerializable("NOTICIERO", noticiero);
+        fragmento.setArguments(bundle);
+        inflarFragmento(fragmento);
+    }
+
+    @Override
+    public void pasarNoticia(Noticia noticia) {
+        FragmentoDetalleNoticia fragmento = new FragmentoDetalleNoticia();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("NOTICIA", noticia);
         fragmento.setArguments(bundle);
         inflarFragmento(fragmento);
     }

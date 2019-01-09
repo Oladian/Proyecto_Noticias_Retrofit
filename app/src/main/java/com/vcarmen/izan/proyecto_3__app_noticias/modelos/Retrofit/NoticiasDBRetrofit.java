@@ -1,5 +1,7 @@
 package com.vcarmen.izan.proyecto_3__app_noticias.modelos.Retrofit;
 
+import android.util.Log;
+
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.ApiConfig;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.DataSource;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
@@ -34,20 +36,23 @@ public class NoticiasDBRetrofit {
 
     public void getNoticias(String source, final DataSource.NoticiasCallback noticiasCallback){
 
-        Call<NoticiasResponse> call = api.getNoticias(ApiConfig.APIKEY, source
+        Call<NoticiasResponse> call = api.getNoticias( source, ApiConfig.APIKEY
           //      , 1
         );
+        //Log.e("Request", call.request().toString());
         call.enqueue(new Callback<NoticiasResponse>() {
             @Override
             public void onResponse(Call<NoticiasResponse> call, Response<NoticiasResponse> response) {
                 NoticiasResponse noticiasResponse = response.body();
                 List<Noticia> noticias = noticiasResponse.getNoticias();
+                //Log.e("Size lista", noticias.size()+"");
 
                 noticiasCallback.onNoticiasCargadas(noticias);
             }
 
             @Override
             public void onFailure(Call<NoticiasResponse> call, Throwable t) {
+                Log.e("Error descarga Noticias", t.getMessage());
                 noticiasCallback.onNoticiasError();
             }
         });

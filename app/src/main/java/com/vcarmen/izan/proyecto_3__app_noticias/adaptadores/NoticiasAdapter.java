@@ -1,19 +1,18 @@
 package com.vcarmen.izan.proyecto_3__app_noticias.adaptadores;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.vcarmen.izan.proyecto_3__app_noticias.R;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.ApiConfig;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.api.VolleySingleton;
 
 import java.util.List;
 
@@ -67,7 +66,12 @@ public class NoticiasAdapter extends BaseAdapter {
         viewHolder.autor.setText(noticia.getAuthor());
         viewHolder.fecha.setText(noticia.getFormatPublishedAt());
 
-        Glide.with(view).load(noticia.getUrlToImage()).apply(RequestOptions.placeholderOf(R.color.colorPrimary)).into(viewHolder.imagen);
+        Log.e("URLTOIMAGE", noticia.getUrlToImage());
+
+        Glide.with(view)
+                .load(noticia.getUrlToImage())
+                .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
+                .into(viewHolder.imagen);
 
         //viewHolder.imagen.setImageUrl(noticia.getUrlToImage(), VolleySingleton.getInstance(context).getImageLoader());
 
@@ -82,7 +86,7 @@ public class NoticiasAdapter extends BaseAdapter {
         @BindView(R.id.fecha)
         TextView fecha;
         @BindView(R.id.imagen)
-        NetworkImageView imagen;
+        ImageView imagen;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this, v);
