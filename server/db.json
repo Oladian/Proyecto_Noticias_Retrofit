@@ -1,0 +1,5 @@
+{
+  "noticias": [
+    { "author": 1, "title": "json-server", "description": "typicode", "url": 1, "urlToImage": "json-server", "publishedAt": "typicode"}
+  ]
+}
