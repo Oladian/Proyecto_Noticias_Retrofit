@@ -66,8 +66,6 @@ public class NoticiasAdapter extends BaseAdapter {
         viewHolder.autor.setText(noticia.getAuthor());
         viewHolder.fecha.setText(noticia.getFormatPublishedAt());
 
-        Log.e("URLTOIMAGE", noticia.getUrlToImage());
-
         Glide.with(view)
                 .load(noticia.getUrlToImage())
                 .apply(RequestOptions.placeholderOf(R.color.colorPrimary))

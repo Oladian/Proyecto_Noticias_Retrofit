@@ -1,9 +1,6 @@
 package com.vcarmen.izan.proyecto_3__app_noticias.modelos.Retrofit;
 
-import android.util.Log;
-
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.NoticiasResponse;
 
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class NoticasFavoritosRetrofit {
     private NoticasFavoritosRetrofit() {
         Retrofit retrofit = new Retrofit
                 .Builder()
-                .baseUrl("http://192.168.16.131:3000/")
+                .baseUrl("http://192.168.1.36:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         api = retrofit.create(NoticiasFavoritosAPI.class);
@@ -35,15 +32,16 @@ public class NoticasFavoritosRetrofit {
     }
 
     public void postNoticias(Noticia noticia, final CallbackNoticia callbackNoticia) {
-        api.postNoticias(noticia).enqueue(new Callback<NoticiasResponse>() {
+
+        api.postNoticias(noticia).enqueue(new Callback<Noticia>() {
             @Override
-            public void onResponse(Call<NoticiasResponse> call, Response<NoticiasResponse> response) {
-                callbackNoticia.onNoticia();
+            public void onResponse(Call<Noticia> call, Response<Noticia> response) {
+                callbackNoticia.onPostNoticia();
             }
 
             @Override
-            public void onFailure(Call<NoticiasResponse> call, Throwable t) {
-
+            public void onFailure(Call<Noticia> call, Throwable t) {
+                callbackNoticia.onNoticiaError(t.getMessage());
             }
         });
     }
@@ -54,24 +52,41 @@ public class NoticasFavoritosRetrofit {
             @Override
             public void onResponse(Call<List<Noticia>> call, Response<List<Noticia>> response) {
                 List<Noticia> listaNoticias = response.body();
-                Log.e("Size noticias", listaNoticias.size()+"");
                 callbackNoticias.onNoticias(listaNoticias);
             }
             @Override
             public void onFailure(Call<List<Noticia>> call, Throwable t) {
-                Log.e("Error", t.getMessage());
                 callbackNoticias.onNoticiasError(t.getMessage());
             }
         });
     }
 
+/*    public void deleteNoticia(Noticia noticia, final CallbackDeleteNoticia callbackDeleteNoticia){
+        api.deleteNoticia(noticia.getId).enqueue(new Callback<Noticia>() {
+            @Override
+            public void onResponse(Call<Noticia> call, Response<Noticia> response) {
+                callbackDeleteNoticia.onDeleteNoticia();
+            }
+
+            @Override
+            public void onFailure(Call<Noticia> call, Throwable t) {
+
+            }
+        });
+    }*/
+
+
     public interface CallbackNoticia {
-        void onNoticia();
+        void onPostNoticia();
         void onNoticiaError(String mensajeError);
     }
 
     public interface CallbackNoticias {
         void onNoticias(List<Noticia> noticias);
         void onNoticiasError(String mensajeError);
+    }
+
+    public interface CallbackDeleteNoticia{
+        void onDeleteNoticia();
     }
 }

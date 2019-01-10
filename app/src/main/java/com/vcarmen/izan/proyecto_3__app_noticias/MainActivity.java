@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoDetalleNoticia;
+import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaFavoritos;
 import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticias;
 import com.vcarmen.izan.proyecto_3__app_noticias.Fragmentos.FragmentoListaNoticieros;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
@@ -36,10 +37,12 @@ public class MainActivity extends AppCompatActivity implements OnComunicarFragme
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_favoritos:
+                FragmentoListaFavoritos fragmentoListaFavoritos = new FragmentoListaFavoritos();
+                inflarFragmento(fragmentoListaFavoritos);
                 return true;
             case R.id.item_listar_noticias:
-                FragmentoListaNoticieros fragmento = new FragmentoListaNoticieros();
-                inflarFragmento(fragmento);
+                FragmentoListaNoticieros fragmentoListaNoticieros = new FragmentoListaNoticieros();
+                inflarFragmento(fragmentoListaNoticieros);
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -45,8 +45,6 @@ public class NoticiasDBRetrofit {
             public void onResponse(Call<NoticiasResponse> call, Response<NoticiasResponse> response) {
                 NoticiasResponse noticiasResponse = response.body();
                 List<Noticia> noticias = noticiasResponse.getNoticias();
-                //Log.e("Size lista", noticias.size()+"");
-
                 noticiasCallback.onNoticiasCargadas(noticias);
             }
 

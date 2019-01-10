@@ -32,7 +32,6 @@ public class Noticia implements Serializable {
 
     private boolean favorito = false;
 
-
     public Noticia(String author, String title, String description, String url, String urlToImage, Date publishedAt) {
         this.author = author;
         this.title = title;

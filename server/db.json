@@ -1,5 +1,44 @@
 {
   "noticias": [
-    { "author": 1, "title": "json-server", "description": "typicode", "url": 1, "urlToImage": "json-server", "publishedAt": "typicode"}
+    {
+      "author": "marca.com",
+      "description": "Antes que Stephen Curry hiciera suya la rutina de anotar desde el túnel de vestaurio casi antes de cada partido, Monta Ellis, que jugó sus primeros...",
+      "favorito": false,
+      "publishedAt": "Jan 10, 2019 6:18:11 PM",
+      "title": "El día que Monta Ellis anotó de espaldas...¡y desde el túnel de vestuarios!",
+      "url": "https://www.marca.com/baloncesto/nba/2019/01/10/5c378c59e5fdea7b6a8b463a.html",
+      "urlToImage": "https://ak.uecdn.es/p/110/thumbnail/entry_id/0_2690j8hm/width/657/cache_st/20190110191815/type/2/bgcolor/000000/0_2690j8hm.jpg",
+      "id": 2
+    },
+    {
+      "author": "F. Álvarez, D. Pico",
+      "description": "La Copa ya no interesa tanto como hace un año. En realidad, no interesa. El escenario del equipo ha cambiado radicalmente y las dificultades que...",
+      "favorito": false,
+      "publishedAt": "Jan 10, 2019 6:03:06 PM",
+      "title": "La crisis en la Liga obliga al Valencia a dejar la Copa en segundo plano",
+      "url": "https://www.marca.com/futbol/valencia/2019/01/10/5c37889dca47412a0c8b462b.html",
+      "urlToImage": "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2019/01/10/15471432797378.jpg",
+      "id": 3
+    },
+    {
+      "author": "F. Álvarez, D. Pico",
+      "description": "La Copa ya no interesa tanto como hace un año. En realidad, no interesa. El escenario del equipo ha cambiado radicalmente y las dificultades que...",
+      "favorito": false,
+      "publishedAt": "Jan 10, 2019 6:03:06 PM",
+      "title": "La crisis en la Liga obliga al Valencia a dejar la Copa en segundo plano",
+      "url": "https://www.marca.com/futbol/valencia/2019/01/10/5c37889dca47412a0c8b462b.html",
+      "urlToImage": "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2019/01/10/15471432797378.jpg",
+      "id": 4
+    },
+    {
+      "author": "MARTA BENAYAS",
+      "description": "\"Por muy acostumbrados a verla subida a unos tacones de infarto y con diseños de Alta Costura, la realidad es que en su día a día Gigi Hadid...\"",
+      "favorito": false,
+      "publishedAt": "Jan 10, 2019 5:26:15 PM",
+      "title": "La día que Gigi Hadid transformó una camisa militar la alternativa más sensual",
+      "url": "https://www.elmundo.es/yodona/moda/2019/01/10/5c377481fdddff72498b4673.html",
+      "urlToImage": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2019/01/10/5c377481fdddff72498b4673_rrss.jpg",
+      "id": 5
+    }
   ]
 }

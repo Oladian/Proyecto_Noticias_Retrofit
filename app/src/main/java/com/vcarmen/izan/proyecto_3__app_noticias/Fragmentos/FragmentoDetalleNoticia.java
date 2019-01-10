@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.vcarmen.izan.proyecto_3__app_noticias.R;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
+import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Retrofit.NoticasFavoritosRetrofit;
 
 
 import butterknife.BindView;
@@ -52,19 +53,22 @@ public class FragmentoDetalleNoticia extends Fragment {
         setNoticia(noticia, view);
 
         if (noticia.isFavorito()==true) favoriteButton.setFavorite(true);
-        Toast.makeText(getContext(), noticia.isFavorito()+"", Toast.LENGTH_SHORT).show();
 
         favoriteButton.setOnFavoriteChangeListener(new MaterialFavoriteButton.OnFavoriteChangeListener() {
             @Override
             public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                 if (favorite==true) {
-                    noticia.setFavorito(true);
-                    Toast.makeText(view.getContext(), "Ahora es favorito", Toast.LENGTH_SHORT).show();
+                    NoticasFavoritosRetrofit.getInstance().postNoticias(noticia, new NoticasFavoritosRetrofit.CallbackNoticia() {
+                        @Override
+                        public void onPostNoticia() {
+                            Toast.makeText(view.getContext(), "Ahora es favorito", Toast.LENGTH_SHORT).show();
+                        }
 
-                }
-                if (favorite==false) {
-                    noticia.setFavorito(false);
-                    Toast.makeText(view.getContext(), "Ahora no es favorito", Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onNoticiaError(String mensajeError) {
+                            Toast.makeText(view.getContext(), "ERROR AL GUARDAR", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });

@@ -10,24 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.vcarmen.izan.proyecto_3__app_noticias.R;
 import com.vcarmen.izan.proyecto_3__app_noticias.adaptadores.NoticiasAdapter;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.DataSource;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticia;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Noticiero;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.OnComunicarFragmentos;
 import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Retrofit.NoticasFavoritosRetrofit;
-import com.vcarmen.izan.proyecto_3__app_noticias.modelos.Retrofit.NoticiasDBRetrofit;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FragmentoListaNoticias extends Fragment {
-
+public class FragmentoListaFavoritos extends Fragment {
     @BindView(R.id.listViewNoticias)
     ListView listView;
 
@@ -54,19 +49,16 @@ public class FragmentoListaNoticias extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
 
-        Noticiero noticiero = (Noticiero) getArguments().getSerializable("NOTICIERO");
-        String fuente = noticiero.getFuente();
-
-        NoticiasDBRetrofit.getInstance().getNoticias(fuente, new DataSource.NoticiasCallback() {
+        NoticasFavoritosRetrofit.getInstance().getNoticias(new NoticasFavoritosRetrofit.CallbackNoticias() {
             @Override
-            public void onNoticiasCargadas(List<Noticia> noticias) {
+            public void onNoticias(List<Noticia> noticias) {
                 listaNoticias = noticias;
                 adapter = new NoticiasAdapter(getContext(), noticias);
                 listView.setAdapter(adapter);
             }
 
             @Override
-            public void onNoticiasError() {
+            public void onNoticiasError(String mensajeError) {
 
             }
         });
@@ -81,19 +73,10 @@ public class FragmentoListaNoticias extends Fragment {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                NoticasFavoritosRetrofit.getInstance().postNoticias(listaNoticias.get(i), new NoticasFavoritosRetrofit.CallbackNoticia() {
-                    @Override
-                    public void onPostNoticia() {
-                        Toast.makeText(getContext(), "Ahora es favorito", Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onNoticiaError(String mensajeError) {
-                        Toast.makeText(getContext(), "ERROR AL GUARDAR", Toast.LENGTH_SHORT).show();
-                    }
-                });
                 return false;
             }
         });
     }
+
 }
