@@ -58,9 +58,11 @@ public class FragmentoDetalleNoticia extends Fragment {
             @Override
             public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                 if (favorite==true) {
+                    noticia.setFavorito(true);
                     NoticasFavoritosRetrofit.getInstance().postNoticias(noticia, new NoticasFavoritosRetrofit.CallbackNoticia() {
                         @Override
                         public void onPostNoticia() {
+
                             Toast.makeText(view.getContext(), "Ahora es favorito", Toast.LENGTH_SHORT).show();
                         }
 

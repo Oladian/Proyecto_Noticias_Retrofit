@@ -61,8 +61,8 @@ public class NoticasFavoritosRetrofit {
         });
     }
 
-/*    public void deleteNoticia(Noticia noticia, final CallbackDeleteNoticia callbackDeleteNoticia){
-        api.deleteNoticia(noticia.getId).enqueue(new Callback<Noticia>() {
+    public void deleteNoticia(Noticia noticia, final CallbackDeleteNoticia callbackDeleteNoticia){
+        api.deleteNoticia(noticia.getId()).enqueue(new Callback<Noticia>() {
             @Override
             public void onResponse(Call<Noticia> call, Response<Noticia> response) {
                 callbackDeleteNoticia.onDeleteNoticia();
@@ -70,10 +70,10 @@ public class NoticasFavoritosRetrofit {
 
             @Override
             public void onFailure(Call<Noticia> call, Throwable t) {
-
+                callbackDeleteNoticia.onDeleteNoticia();
             }
         });
-    }*/
+    }
 
 
     public interface CallbackNoticia {
@@ -88,5 +88,6 @@ public class NoticasFavoritosRetrofit {
 
     public interface CallbackDeleteNoticia{
         void onDeleteNoticia();
+        void onDeleteNoticiaError();
     }
 }

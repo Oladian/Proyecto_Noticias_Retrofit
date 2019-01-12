@@ -63,20 +63,34 @@ public class FragmentoListaFavoritos extends Fragment {
             }
         });
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                NoticasFavoritosRetrofit.getInstance().deleteNoticia(listaNoticias.get(i), new NoticasFavoritosRetrofit.CallbackDeleteNoticia() {
+                    @Override
+                    public void onDeleteNoticia() {
+
+                    }
+
+                    @Override
+                    public void onDeleteNoticiaError() {
+
+                    }
+                });
+
+                listaNoticias.remove(i);
+                adapter.notifyDataSetChanged();
+                return false;
+
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 callback.pasarNoticia(listaNoticias.get(position));
             }
         });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                return false;
-            }
-        });
     }
-
 }

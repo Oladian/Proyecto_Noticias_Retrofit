@@ -11,34 +11,14 @@
       "id": 2
     },
     {
-      "author": "F. Álvarez, D. Pico",
-      "description": "La Copa ya no interesa tanto como hace un año. En realidad, no interesa. El escenario del equipo ha cambiado radicalmente y las dificultades que...",
-      "favorito": false,
-      "publishedAt": "Jan 10, 2019 6:03:06 PM",
-      "title": "La crisis en la Liga obliga al Valencia a dejar la Copa en segundo plano",
-      "url": "https://www.marca.com/futbol/valencia/2019/01/10/5c37889dca47412a0c8b462b.html",
-      "urlToImage": "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2019/01/10/15471432797378.jpg",
+      "author": "ÁNGEL VILLAMOR",
+      "description": "l Real Madrid sufre el azote de las lesiones musculares. Las bajas de Kroos, Bale, Llorente, Mariano, Javi Sánchez y Courtois han hecho que planee de nuevo la sombra de la duda sob",
+      "favorito": true,
+      "publishedAt": "Jan 12, 2019 12:30:32 PM",
+      "title": "Explorar, analizar y controlar",
+      "url": "https://www.elmundo.es/deportes/futbol/2019/01/12/5c391b3721efa07d018b46d6.html",
+      "urlToImage": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2019/01/11/15472461894131.jpg",
       "id": 3
-    },
-    {
-      "author": "F. Álvarez, D. Pico",
-      "description": "La Copa ya no interesa tanto como hace un año. En realidad, no interesa. El escenario del equipo ha cambiado radicalmente y las dificultades que...",
-      "favorito": false,
-      "publishedAt": "Jan 10, 2019 6:03:06 PM",
-      "title": "La crisis en la Liga obliga al Valencia a dejar la Copa en segundo plano",
-      "url": "https://www.marca.com/futbol/valencia/2019/01/10/5c37889dca47412a0c8b462b.html",
-      "urlToImage": "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2019/01/10/15471432797378.jpg",
-      "id": 4
-    },
-    {
-      "author": "MARTA BENAYAS",
-      "description": "\"Por muy acostumbrados a verla subida a unos tacones de infarto y con diseños de Alta Costura, la realidad es que en su día a día Gigi Hadid...\"",
-      "favorito": false,
-      "publishedAt": "Jan 10, 2019 5:26:15 PM",
-      "title": "La día que Gigi Hadid transformó una camisa militar la alternativa más sensual",
-      "url": "https://www.elmundo.es/yodona/moda/2019/01/10/5c377481fdddff72498b4673.html",
-      "urlToImage": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2019/01/10/5c377481fdddff72498b4673_rrss.jpg",
-      "id": 5
     }
   ]
 }
