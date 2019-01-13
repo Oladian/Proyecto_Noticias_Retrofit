@@ -3,9 +3,9 @@ package com.vcarmen.izan.proyecto_3__app_noticias.modelos;
 import java.io.Serializable;
 
 public class Noticiero implements Serializable {
-    int imagen;
+    private int imagen;
 
-    String nombre, fuente;
+    private String nombre, fuente;
 
     public Noticiero(int imagen, String nombre, String fuente) {
         this.imagen = imagen;

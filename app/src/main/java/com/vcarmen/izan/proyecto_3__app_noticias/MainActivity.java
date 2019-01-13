@@ -21,10 +21,14 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements OnComunicarFragmentos {
 
+    FragmentoListaNoticieros fragmentoListaNoticieros = new FragmentoListaNoticieros();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        inflarFragmento(fragmentoListaNoticieros);
     }
 
     @Override
